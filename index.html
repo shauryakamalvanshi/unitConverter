@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        body {
+            background-image: url(image.jpg);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh; /* Ensures the container takes up the full viewport height */
+        }
+    
+        .container {
+            background-color: aliceblue;
+      text-align: center;
+      width: 500px;
+      height: 300px;
+      border: 1px solid black;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(44, 89, 78, 1); 
+      font-family: 'Lato', sans-serif;
+    }
+    #write{
+        font-size: 50px;
+    }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div id="myHead">
+        <span><h1>Unit converter <b> |  Fahrenheit to Celsius </h1></span>
+     </div>
+        <div class="inputbox">
+            <input type="number" id="num" placeholder="Enter the value">
+        </div>
+        <select name="temp_diff" id="temp_diff">
+            <option value="cel">Celsius</option>
+            <option value="fah">farenheit</option>
+        </select>
+        <button id="ctf" onclick="prit()">submit</button>
+
+        <div id="write">
+           
+        </div>
+    </div>
+    <script>
+        function prit(){
+       var numb=document.getElementById('num').value;
+       const tempSelected=document.getElementById('temp_diff').value;
+       console.log(tempSelected);
+
+       var f=numb*1.8+32;
+       var c=((numb-32)/1.8);
+       c=c.toFixed(2);
+       f=f.toFixed(2);
+       
+
+       if (tempSelected=='fah') {
+        document.getElementById('write').innerHTML=`the value is ${f} farenheit  `;
+        document.getElementById('myHead').innerHTML='<h1>Unit Converter  |   Celcius to Farenheit </h1>';
+       }else{
+        document.getElementById('write').innerHTML=`the value is ${c} Celcius `;
+        document.getElementById('myHead').innerHTML=`<h1>Unit Converter  |   Farenheit to Celcius</h1> `
+       }
+       
+
+
+     
+        }
+
+
+    </script>
+</body>
+</html>
